@@ -5,7 +5,7 @@ setup(
     version='0.1.1',
     author='Ferhat Elmas',
     author_email='elmas.ferhat@gmail.com',
-    packages=['sexmachine', 'sexmachine.test'],
+    packages=['sexmachine'],
     package_dir={'sexmachine': 'sexmachine'},
     package_data={'sexmachine': ['data/*.txt']},
     url='https://github.com/ferhatelmas/sexmachine/',
