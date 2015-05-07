@@ -1,6 +1,5 @@
 import os.path
 import codecs
-from .mapping import map_name
 
 
 class NoCountryError(Exception):
@@ -33,10 +32,8 @@ class Detector:
     def _parse(self, filename):
         """Opens data file and for each line, calls _eat_name_line"""
         self.names = {}
-        with codecs.open(filename, encoding="iso8859-1") as f:
+        with codecs.open(filename, encoding="utf-8") as f:
             for line in f:
-                if any(map(lambda c: 128 < ord(c) < 160, line)):
-                    line = line.encode("iso8859-1").decode("windows-1252")
                 self._eat_name_line(line.strip())
 
     def _eat_name_line(self, line):
@@ -44,7 +41,7 @@ class Detector:
         if line[0] not in "#=":
             parts = line.split()
             country_values = line[30:-1]
-            name = map_name(parts[1])
+            name = parts[1]
             if not self.case_sensitive:
                 name = name.lower()
 
