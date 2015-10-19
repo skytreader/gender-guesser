@@ -75,7 +75,7 @@ class Detector:
 
         max_count, max_tie = (0, 0)
         best = list(self.names[name].keys())[0]
-        for gender, country_values in self.names[name].items():
+        for gender, country_values in list(self.names[name].items()):
             count, tie = counter(country_values)
             if count > max_count or (count == max_count and tie > max_tie):
                 max_count, max_tie, best = count, tie, gender
@@ -91,9 +91,9 @@ class Detector:
             return self.unknown_value
         elif not country:
             def counter(country_values):
-                country_values = map(ord, country_values.replace(" ", ""))
-                return (len(list(country_values)),
-                        sum(map(lambda c: c > 64 and c-55 or c-48, country_values)))
+                country_values = list(map(ord, country_values.replace(" ", "")))
+                return (len(country_values),
+                        sum([c > 64 and c-55 or c-48 for c in country_values]))
             return self._most_popular_gender(name, counter)
         elif country in self.__class__.COUNTRIES:
             index = self.__class__.COUNTRIES.index(country)
