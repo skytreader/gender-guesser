@@ -1,4 +1,5 @@
 from distutils.core import setup
+from io import open
 
 setup(
     name='SexMachine',
@@ -11,5 +12,5 @@ setup(
     url='https://github.com/ferhatelmas/sexmachine/',
     license='GPLv3',
     description='Get the gender from first name.',
-    long_description=open('README.rst').read(),
+    long_description=open('README.rst', encoding='utf-8').read(),
 )
