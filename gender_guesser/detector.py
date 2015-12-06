@@ -21,12 +21,10 @@ class Detector:
                  """.split()
 
     def __init__(self,
-                 case_sensitive=True,
-                 unknown_value=u"andy"):
+                 case_sensitive=True):
 
         """Creates a detector parsing given data file"""
         self.case_sensitive = case_sensitive
-        self.unknown_value = unknown_value
         self._parse(os.path.join(os.path.dirname(__file__), "data/nam_dict.txt"))
 
     def _parse(self, filename):
@@ -54,7 +52,7 @@ class Detector:
             elif parts[0] == "1F" or parts[0] == "?F":
                 self._set(name, u"mostly_female", country_values)
             elif parts[0] == "?":
-                self._set(name, self.unknown_value, country_values)
+                self._set(name, u"andy", country_values)
             else:
                 raise "Not sure what to do with a sex of %s" % parts[0]
 
@@ -71,7 +69,7 @@ class Detector:
     def _most_popular_gender(self, name, counter):
         """Finds the most popular gender for the given name counting by given counter"""
         if name not in self.names:
-            return self.unknown_value
+            return u"unknown"
 
         max_count, max_tie = (0, 0)
         best = list(self.names[name].keys())[0]
@@ -80,7 +78,7 @@ class Detector:
             if count > max_count or (count == max_count and tie > max_tie):
                 max_count, max_tie, best = count, tie, gender
 
-        return best if max_count > 0 else self.unknown_value
+        return best if max_count > 0 else u"andy"
 
     def get_gender(self, name, country=None):
         """Returns best gender for the given name and country pair"""
@@ -88,7 +86,7 @@ class Detector:
             name = name.lower()
 
         if name not in self.names:
-            return self.unknown_value
+            return u"unknown"
         elif not country:
             def counter(country_values):
                 country_values = list(map(ord, country_values.replace(" ", "")))

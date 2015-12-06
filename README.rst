@@ -13,11 +13,7 @@ This package uses the underlying data from the program "gender" by Jorg Michael 
     >>> print(d.get_gender(u"Pauley")) # should be androgynous
     andy
 
-The result will be one of ``andy`` (androgynous), ``male``, ``female``, ``mostly_male``, or ``mostly_female``.  Any unknown names are considered andies. Moreover, you can set unknown value to whatever you want::
-
-    >>> d = gender.Detector(unknown_value=u"ferhat")
-    >>> print(d.get_gender(u"Pauley"))
-    ferhat
+The result will be one of ``unknown`` (name not found), ``andy`` (androgynous), ``male``, ``female``, ``mostly_male``, or ``mostly_female``. The difference between ``andy`` and ``unknown`` is that the former is found to have the same probability to be male than to be female, while the later means that the name wasn't found in the database.
 
 I18N is fully supported::
 
@@ -53,6 +49,8 @@ Changelog
 0.3.0 (development)
 *******************
 
+* Remove ``unknown_value`` init option, since it can be implemented very easily with a wrapper if needed.
+* Return ``unknown`` when name is not found and ``andy`` when it is valid equally for both male and female.
 * Test README examples as doctests.
 
 

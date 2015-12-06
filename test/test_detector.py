@@ -32,5 +32,8 @@ class TestDetector(unittest.TestCase):
         self.assertEqual(self.incase.get_gender(u"aydın"), u"male")
         self.assertEqual(self.incase.get_gender(u"Aydın"), u"male")
 
+    def test_unknown(self):
+        self.assertEqual(self.incase.get_gender(u"UnexistentName"), u"unknown")
+
 if __name__ == '__main__':
     unittest.main()
