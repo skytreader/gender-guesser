@@ -6,38 +6,38 @@ This package uses the underlying data from the program "gender" by Jorg Michael 
 
     >>> import gender_guesser.detector as gender
     >>> d = gender.Detector()
-    >>> d.get_gender(u"Bob")
-    u'male'
-    >>> d.get_gender(u"Sally")
-    u'female'
-    >>> d.get_gender(u"Pauley") # should be androgynous
-    u'andy'
+    >>> print(d.get_gender(u"Bob"))
+    male
+    >>> print(d.get_gender(u"Sally"))
+    female
+    >>> print(d.get_gender(u"Pauley")) # should be androgynous
+    andy
 
 The result will be one of ``andy`` (androgynous), ``male``, ``female``, ``mostly_male``, or ``mostly_female``.  Any unknown names are considered andies. Moreover, you can set unknown value to whatever you want::
 
     >>> d = gender.Detector(unknown_value=u"ferhat")
-    >>> d.get_gender(u"Pauley")
-    u'ferhat'
+    >>> print(d.get_gender(u"Pauley"))
+    ferhat
 
 I18N is fully supported::
 
-    >>> d.get_gender(u"Álfrún")
-    u'female'
+    >>> print(d.get_gender(u"\xc1lfr\xfan"))  # u"Álfrún"
+    female
 
 Additionally, you can give preference to specific countries::
 
-    >>> d.get_gender(u"Jamie")
-    u'mostly_female'
-    >>> d.get_gender(u"Jamie", u'great_britain')
-    u'mostly_male'
+    >>> print(d.get_gender(u"Jamie"))
+    mostly_female
+    >>> print(d.get_gender(u"Jamie", u'great_britain'))
+    mostly_male
 
 Additionally, you can create a detector that is not case sensitive (default *is* to be case sensitive)::
 
-    >>> d = gender_guesser.detector.Detector(case_sensitive=False)
-    >>> d.get_gender(u"sally")
-    u'female'
-    >>> d.get_gender(u"Sally")
-    u'female'
+    >>> d = gender.Detector(case_sensitive=False)
+    >>> print(d.get_gender(u"sally"))
+    female
+    >>> print(d.get_gender(u"Sally"))
+    female
 
 Try to avoid creating many Detectors, as each creation means reading the data file.
 
@@ -49,6 +49,12 @@ The generator code is distributed under the GPLv3.  The data file nam_dict.txt i
 
 Changelog
 =========
+
+0.3.0 (development)
+*******************
+
+* Test README examples as doctests.
+
 
 0.2.0 (2015-12-06)
 ******************
