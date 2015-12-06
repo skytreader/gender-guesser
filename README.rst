@@ -46,6 +46,20 @@ Licenses
 
 The generator code is distributed under the GPLv3.  The data file nam_dict.txt is released under the GNU Free Documentation License.
 
+
+Changelog
+=========
+
+0.2.0 (2015-12-06)
+******************
+
+* Wire in ``tox`` to test in both Python 2 and Python 3.
+* Python 2 and 3 compatiblity.
+* Remove obsolete character mapper code.
+
+For previous versions, see `sexmachine <https://github.com/ferhatelmas/sexmachine/>`_.
+
+
 Credits
 =======
 
