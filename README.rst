@@ -2,6 +2,10 @@
 Gender Guesser
 ==============
 
+.. image:: https://travis-ci.org/lead-ratings/gender-guesser.svg?branch=master
+    :target: https://travis-ci.org/lead-ratings/gender-guesser
+
+
 This package uses the underlying data from the program "gender" by Jorg Michael (described `here <http://www.autohotkey.com/community/viewtopic.php?t=22000>`_).  Its use is pretty straightforward::
 
     >>> import gender_guesser.detector as gender
