@@ -31,7 +31,7 @@ class Tox(TestCommand):
 
 setup(
     name='gender-guesser',
-    version='0.2.0',
+    version='0.3.0',
     author='Israel Saeta Pérez',
     author_email='israel@lead-ratings.com',
     packages=['gender_guesser'],

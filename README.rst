@@ -50,8 +50,8 @@ The generator code is distributed under the GPLv3.  The data file nam_dict.txt i
 Changelog
 =========
 
-0.3.0 (development)
-*******************
+0.3.0 (2016-07-02)
+******************
 
 * Remove ``unknown_value`` init option, since it can be implemented very easily with a wrapper if needed.
 * Return ``unknown`` when name is not found and ``andy`` when it is valid equally for both male and female.
