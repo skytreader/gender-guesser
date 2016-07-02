@@ -25,6 +25,8 @@ class TestDetector(unittest.TestCase):
         self.assertEqual(self.case.get_gender(u"Jamie"), u"mostly_female")
         self.assertEqual(self.case.get_gender(u"Jamie", u"great_britain"),
                          u"mostly_male")
+        self.assertEqual(self.case.get_gender(u"Alžbeta", "slovakia"), u"female")
+        self.assertEqual(self.case.get_gender(u"Buğra", "turkey"), u"male")
 
     def test_case(self):
         self.assertEqual(self.incase.get_gender(u"sally"), u"female")

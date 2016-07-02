@@ -56,6 +56,7 @@ Changelog
 * Remove ``unknown_value`` init option, since it can be implemented very easily with a wrapper if needed.
 * Return ``unknown`` when name is not found and ``andy`` when it is valid equally for both male and female.
 * Test README examples as doctests.
+* Fix incorrect country-wise gender detection for non-iso886-15 names coming from line length change after data file conversion to UTF-8. See #gh2. Thanks @miquelcamprodon.
 
 
 0.2.0 (2015-12-06)
