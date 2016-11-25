@@ -34,6 +34,11 @@ class TestDetector(unittest.TestCase):
         self.assertEqual(self.incase.get_gender(u"aydın"), u"male")
         self.assertEqual(self.incase.get_gender(u"Aydın"), u"male")
 
+    def test_composite_name(self):
+        self.assertEqual(self.case.get_gender(u"María del Rosario"), u"female")
+        self.assertEqual(self.case.get_gender(u"Maria de Jesus"), u"female")
+        self.assertEqual(self.case.get_gender(u"Maria"), u"female")
+
     def test_unknown(self):
         self.assertEqual(self.incase.get_gender(u"UnexistentName"), u"unknown")
 
