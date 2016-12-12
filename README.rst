@@ -50,6 +50,12 @@ The generator code is distributed under the GPLv3.  The data file nam_dict.txt i
 Changelog
 =========
 
+0.4.0 (2016-12-05)
+******************
+
+* Fix bug where spaces in composite names were shadowing other names
+
+
 0.3.0 (2016-07-02)
 ******************
 
