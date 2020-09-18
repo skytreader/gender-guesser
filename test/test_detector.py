@@ -10,37 +10,37 @@ class TestDetector(unittest.TestCase):
         self.incase = d.Detector(case_sensitive=False)
 
     def test_gender(self):
-        self.assertEqual(self.case.get_gender(u"Bob"), u"male")
-        self.assertEqual(self.case.get_gender(u"Sally"), u"female")
-        self.assertEqual(self.case.get_gender(u"Pauley"), u"andy")
+        self.assertEqual(self.case.get_gender("Bob"), "male")
+        self.assertEqual(self.case.get_gender("Sally"), "female")
+        self.assertEqual(self.case.get_gender("Pauley"), "andy")
 
     def test_unicode(self):
-        self.assertEqual(self.case.get_gender(u"Álfrún"), u"female")
-        self.assertEqual(self.case.get_gender(u"Ayşe"), u"female")
-        self.assertEqual(self.case.get_gender(u"Gavriliţă"), u"female")
-        self.assertEqual(self.case.get_gender(u"İsmet"), u"male")
-        self.assertEqual(self.case.get_gender(u"Snæbjörn"), u"male")
+        self.assertEqual(self.case.get_gender("Álfrún"), "female")
+        self.assertEqual(self.case.get_gender("Ayşe"), "female")
+        self.assertEqual(self.case.get_gender("Gavriliţă"), "female")
+        self.assertEqual(self.case.get_gender("İsmet"), "male")
+        self.assertEqual(self.case.get_gender("Snæbjörn"), "male")
 
     def test_country(self):
-        self.assertEqual(self.case.get_gender(u"Jamie"), u"mostly_female")
-        self.assertEqual(self.case.get_gender(u"Jamie", u"great_britain"),
-                         u"mostly_male")
-        self.assertEqual(self.case.get_gender(u"Alžbeta", "slovakia"), u"female")
-        self.assertEqual(self.case.get_gender(u"Buğra", "turkey"), u"male")
+        self.assertEqual(self.case.get_gender("Jamie"), "mostly_female")
+        self.assertEqual(self.case.get_gender("Jamie", "great_britain"),
+                         "mostly_male")
+        self.assertEqual(self.case.get_gender("Alžbeta", "slovakia"), "female")
+        self.assertEqual(self.case.get_gender("Buğra", "turkey"), "male")
 
     def test_case(self):
-        self.assertEqual(self.incase.get_gender(u"sally"), u"female")
-        self.assertEqual(self.incase.get_gender(u"Sally"), u"female")
-        self.assertEqual(self.incase.get_gender(u"aydın"), u"male")
-        self.assertEqual(self.incase.get_gender(u"Aydın"), u"male")
+        self.assertEqual(self.incase.get_gender("sally"), "female")
+        self.assertEqual(self.incase.get_gender("Sally"), "female")
+        self.assertEqual(self.incase.get_gender("aydın"), "male")
+        self.assertEqual(self.incase.get_gender("Aydın"), "male")
 
     def test_composite_name(self):
-        self.assertEqual(self.case.get_gender(u"María del Rosario"), u"female")
-        self.assertEqual(self.case.get_gender(u"Maria de Jesus"), u"female")
-        self.assertEqual(self.case.get_gender(u"Maria"), u"female")
+        self.assertEqual(self.case.get_gender("María del Rosario"), "female")
+        self.assertEqual(self.case.get_gender("Maria de Jesus"), "female")
+        self.assertEqual(self.case.get_gender("Maria"), "female")
 
     def test_unknown(self):
-        self.assertEqual(self.incase.get_gender(u"UnexistentName"), u"unknown")
+        self.assertEqual(self.incase.get_gender("UnexistentName"), "unknown")
 
 if __name__ == '__main__':
     unittest.main()

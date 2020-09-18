@@ -10,7 +10,7 @@ class NoCountryError(Exception):
 class Detector:
     """Get gender by first name"""
 
-    COUNTRIES = u"""great_britain ireland usa italy malta portugal spain france
+    COUNTRIES = """great_britain ireland usa italy malta portugal spain france
                    belgium luxembourg the_netherlands east_frisia germany austria
                    swiss iceland denmark norway sweden finland estonia latvia
                    lithuania poland czech_republic slovakia hungary romania
@@ -44,15 +44,15 @@ class Detector:
                 name = name.lower()
 
             if parts[0] == "M":
-                self._set(name, u"male", country_values)
+                self._set(name, "male", country_values)
             elif parts[0] == "1M" or parts[0] == "?M":
-                self._set(name, u"mostly_male", country_values)
+                self._set(name, "mostly_male", country_values)
             elif parts[0] == "F":
-                self._set(name, u"female", country_values)
+                self._set(name, "female", country_values)
             elif parts[0] == "1F" or parts[0] == "?F":
-                self._set(name, u"mostly_female", country_values)
+                self._set(name, "mostly_female", country_values)
             elif parts[0] == "?":
-                self._set(name, u"andy", country_values)
+                self._set(name, "andy", country_values)
             else:
                 raise "Not sure what to do with a sex of %s" % parts[0]
 
@@ -69,7 +69,7 @@ class Detector:
     def _most_popular_gender(self, name, counter):
         """Finds the most popular gender for the given name counting by given counter"""
         if name not in self.names:
-            return u"unknown"
+            return "unknown"
 
         max_count, max_tie = (0, 0)
         best = list(self.names[name].keys())[0]
@@ -78,7 +78,7 @@ class Detector:
             if count > max_count or (count == max_count and tie > max_tie):
                 max_count, max_tie, best = count, tie, gender
 
-        return best if max_count > 0 else u"andy"
+        return best if max_count > 0 else "andy"
 
     def get_gender(self, name, country=None):
         """Returns best gender for the given name and country pair"""
@@ -86,7 +86,7 @@ class Detector:
             name = name.lower()
 
         if name not in self.names:
-            return u"unknown"
+            return "unknown"
         elif not country:
             def counter(country_values):
                 country_values = list(map(ord, country_values.replace(" ", "")))
