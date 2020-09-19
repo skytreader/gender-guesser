@@ -50,6 +50,12 @@ The generator code is distributed under the GPLv3.  The data file nam_dict.txt i
 Changelog
 =========
 
+
+1.0.0 (2020-09-19)
+******************
+
+* Move completely to Python 3.
+
 0.4.0 (2016-12-05)
 ******************
 
@@ -78,4 +84,4 @@ For previous versions, see `sexmachine <https://github.com/ferhatelmas/sexmachin
 Credits
 =======
 
-This is a fork of the ``SexMachine`` package by `Ferhat Elmas <https://github.com/ferhatelmas>`_. It was created to be able to publish a Python 3 compatible version to PyPI and to be able add some more improvements without bugging the original author.
+This is a fork of `gender-guesser packagee by lead-ratings <https://github.com/lead-ratings/gender-guesser>` which in itself is a fork of the ``SexMachine`` package by `Ferhat Elmas <https://github.com/ferhatelmas>`_. It was created to be able to publish a Python 3 compatible version to PyPI and to be able add some more improvements without bugging the original author.
